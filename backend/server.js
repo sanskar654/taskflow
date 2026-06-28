@@ -14,29 +14,31 @@ const app = express();
 // ─── Middleware ────────────────────────────────────────────────────────────────
 const allowedOrigins = [
   'http://localhost:3000',
+  'https://taskflow-psi-mauve.vercel.app',
+  'https://taskflow-fyduzpji9-sanskar654s-projects.vercel.app',
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (mobile apps, curl) or matching origins
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
+    if (!origin) {
+      return callback(null, true);
     }
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    console.log('Blocked Origin:', origin);
+    return callback(null, false);
   },
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true }));
-
-if (process.env.NODE_ENV !== 'test') {
-  app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
-}
 
 // ─── Health Check ──────────────────────────────────────────────────────────────
 app.get('/health', (req, res) => {
