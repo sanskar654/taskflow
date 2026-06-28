@@ -1,0 +1,40 @@
+.task-list-wrap { display: flex; flex-direction: column; }
+
+.list-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 4px;
+  margin-bottom: 6px;
+}
+
+.list-select-all {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.list-header-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  user-select: none;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item { animation: fadeIn 0.25s ease both; }
+
+/* Skeleton */
+.task-skeleton {
+  height: 120px;
+  animation: pulse 1.5s ease infinite;
+}
+
+@media (max-width: 768px) {
+  .task-list { gap: 8px; }
+}

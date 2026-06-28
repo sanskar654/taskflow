@@ -1,0 +1,50 @@
+.analytics-modal {
+  max-width: 700px;
+}
+
+.analytics-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.analytics-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.analytics-card h3 {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.chart-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doughnut-container {
+  height: 220px;
+}
+
+.bar-container {
+  height: 220px;
+}
+
+@media (max-width: 640px) {
+  .analytics-body {
+    grid-template-columns: 1fr;
+  }
+}

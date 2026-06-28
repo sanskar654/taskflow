@@ -1,0 +1,111 @@
+.focus-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.focus-close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.focus-close:hover {
+  color: var(--danger);
+  transform: scale(1.1) rotate(90deg);
+}
+
+.focus-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.focus-task-info {
+  text-align: center;
+}
+
+.focus-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.focus-task-title {
+  font-size: 32px;
+  color: white;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.focus-timer-container {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.focus-timer-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.focus-timer-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 12;
+}
+
+.focus-timer-progress {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.focus-time-display {
+  font-size: 84px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.focus-controls {
+  display: flex;
+  gap: 20px;
+}
+
+.focus-controls .btn-lg {
+  min-width: 160px;
+  border-radius: 99px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
